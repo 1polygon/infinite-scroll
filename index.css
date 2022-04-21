@@ -1,0 +1,62 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: rgb(34, 34, 34);
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    position: relative;
+    width: 430px;
+    height: 60%;
+}
+
+ul {
+    position: relative;
+    height: 100%;
+    border: 2px solid gray;
+    overflow: auto;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul>div:not(.anchor) {
+    position: absolute;
+    width: 100%;
+    color: white;
+    padding: 1em;
+    box-sizing: border-box;
+    background-color: rgb(54, 54, 54);
+    outline: 1px solid #3c3c3c;
+}
+
+.anchor {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: blue;
+    opacity: .5;
+    z-index: 1;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    pointer-events: none;
+}

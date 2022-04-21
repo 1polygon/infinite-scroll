@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <meta charset="utf8">
+    <script src="index.js"></script>
+    <script src="debug.js"></script>
+    <link rel="stylesheet" href="index.css">
+    </link>
+</head>
+
+<body>
+    <main>
+        <ul>
+        </ul>
+    </main>
+</body>
+<script>
+    const list = new VirtualList(document.querySelector("ul"), {
+        itemHeight: 50,
+        bufferPadding: 2,
+        onCreateItem: item => {
+            const element = document.createElement("div");
+            const span = document.createElement("span");
+            element.appendChild(span);
+            element.addEventListener("click", () => {
+                item.data.checked = !item.data.checked;
+                element.style.backgroundColor = item.data.checked ? "green" : "#4f4f4f";
+            });
+            return element;
+        },
+        onLoadItem: item => {
+            item.element.querySelector("span").textContent = item.data.name;
+            item.element.style.backgroundColor = item.data.checked ? "green" : "#4f4f4f";
+            console.log("load", item);
+        },
+        onUnloadItem: item => {
+            console.log("unload", item);
+        }
+    });
+
+    const items = [];
+    for (var i = 0; i < 50; i++) {
+        items.push({
+            name: "Element #" + i,
+            checked: false
+        });
+    }
+
+    list.setItems(items);
+
+    const debug = new DebugViewer(list);
+</script>
+
+</html>
