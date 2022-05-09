@@ -1,4 +1,4 @@
-# Infinite Scroll
-Infinite scroller in plain JavaScript.
+# Virtual list
+Virtual list in plain JavaScript.
 
-Demo: https://1polygon.github.io/infinite-scroll/
+Demo: https://1polygon.github.io/virtual-list/
